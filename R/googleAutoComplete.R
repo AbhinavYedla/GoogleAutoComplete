@@ -71,7 +71,7 @@ googleAutoComplete <-
   function(query,
            country = "com",
            searchLang = "lang_en",
-           webInterfacewebInterfaceLang = "en") {
+           webInterfaceLang = "en") {
     #If query is missing stop the program
     if (missing(query))
     {
@@ -81,14 +81,16 @@ googleAutoComplete <-
     #Load google sub domain data
     data(googleSubDomain, package = "googleautocomplete")
     
+    query <- gsub(pattern = " ", replacement = "%20", query)
     query <- tolower(query)
+    
     country <- tolower(country)
     webInterfaceLang <- tolower(webInterfaceLang)
     
     
     #Get the domain name for a given country
     domainName <-
-      as.character(googleSubDomain[tolower(googleSubDomain$TLD) == country, 3])
+      as.character(googleSubDomain[tolower(googleSubDomain$Code) == country, 3])
     
     #Check if country code is correct or not
     if (identical(domainName, character(0))) {
@@ -98,6 +100,7 @@ googleAutoComplete <-
     #Construct the url
     subDomain <-
       paste0("http://clients1.", domainName)
+    
     webInterfaceLang <- paste0("hl=", webInterfaceLang)
     query <- paste0("q=", query)
     url <-
@@ -120,11 +123,12 @@ googleAutoComplete <-
       return(result)
     }, error = function(ex) {
       cat("An error was detected")
+      cat("Please check language and country code")
       
-      print(ex)
       
     }, finally = {
-      cat("Please check language and country code")
+      
+      closeAllConnections()
       
     })
   }

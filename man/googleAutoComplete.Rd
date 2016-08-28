@@ -5,7 +5,7 @@
 \title{Google Search Autocomplete}
 \usage{
 googleAutoComplete(query, country = "com", searchLang = "lang_en",
-  webInterfacewebInterfaceLang = "en")
+  webInterfaceLang = "en")
 }
 \arguments{
 \item{query}{The term for which autocomplete results are retrieved.}
