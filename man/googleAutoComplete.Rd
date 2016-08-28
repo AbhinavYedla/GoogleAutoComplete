@@ -28,27 +28,18 @@ specific results.
 \code{country} make sure that results retrieved for \code{query} are local
 to mentioned country. \code{webInterfaceLang} parameter is for search
 suggestions in specific language. \code{searchLang} is used to make search
-in specific language. Please refer to \code{googleSubDomain} data frame for
-country availability and country codes. \code{googleSearchLang} and
-\code{googleWebInterfaceLang} for search language and search web interface
+in specific language. Please refer to \code{gSubDomain} data frame for
+country availability and country codes. \code{gSearchLang} and
+\code{gWebInLang} for search language and search web interface
 availability respectively.
 }
 \note{
-Please use it fair. Too many requests can get you blocked.
+Too many requests can get you blocked. Have delay of 1-2 Sec for each request
 }
 \examples{
 googleAutoComplete("Where is olympics", "com","lang_en","en")
-Results:
-Where is olympics 2020
-Where is olympics 2016
-Where is olympics 2024
-Where is olympics 2016 held
 
 googleAutoComplete("total athletes", "com")
-Results:
-total athletes in 2014 Olympics
-total athletes in 2014 winter Olympics
-total athletes in the 2012 Olympics
 
 }
 \author{
@@ -59,7 +50,7 @@ https://sites.google.com/site/tomihasa/google-language-codes
 https://en.wikipedia.org/wiki/List_of_Google_domains
 }
 \seealso{
-\code{\link{googleSearchLang},\link{googleWebInterfaceLang}}
+\code{\link{gSearchLang},\link{gSubDomain},\link{gWebInLang}}
 }
 \keyword{Auto}
 \keyword{Complete}

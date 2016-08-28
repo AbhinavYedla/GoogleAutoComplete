@@ -5,7 +5,7 @@
 #'
 #' @docType data
 #'
-#' @usage data(googleSubDomain)
+#' @usage data(gSubDomain)
 #'
 #' @format An data frame with 3 columns Region, Code and Domain.
 #'
@@ -18,6 +18,6 @@
 #' {Wikipedia Web Page}
 #'
 #' @examples
-#' data(googleSubDomain)
-#' regions <- googleSubDomain$Region
-"googleSubDomain"
+#' data(gSubDomain)
+#' regions <- gSubDomain$Region
+"gSubDomain"

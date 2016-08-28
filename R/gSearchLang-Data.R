@@ -1,11 +1,11 @@
 ##############################################################################
-#                     Google Search Web Interface Language                   #
+#                             Google Search Language                         #
 ##############################################################################
-#' Goolge search web interface language.
+#' Goolge search language.
 #'
 #' @docType data
 #'
-#' @usage data(googleWebInterfaceLang)
+#' @usage data(gSearchLang)
 #'
 #' @format An data frame with 2 columns Language and Code.
 #'
@@ -17,6 +17,6 @@
 #' @source \href{#' https://sites.google.com/site/tomihasa/google-language-codes}
 #'
 #' @examples
-#' data(googleWebInterfaceLang)
-#' code <- googleWebInterfaceLang[googleWebInterfaceLang$Language == 'Hindi',2]
-"googleWebInterfaceLang"
+#' data(gSearchLang)
+#' code <- gSearchLang[gSearchLang$Language == 'Japanese',2]
+"gSearchLang"
