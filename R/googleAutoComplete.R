@@ -69,15 +69,6 @@ googleAutoComplete <-
       stop("Please enter query and try again")
     }
     
-    #Load google sub domain data
-    data(gSubDomain, package = "gautocompleter")
-    
-    query <- gsub(pattern = " ", replacement = "%20", query)
-    query <- tolower(query)
-    
-    country <- tolower(country)
-    webInterfaceLang <- tolower(webInterfaceLang)
-    
     
     #Get the domain name for a given country
     domainName <-
@@ -88,18 +79,41 @@ googleAutoComplete <-
       stop("Please re check your country short code")
     }
     
+    if (!searchLang %in% gSearchLang$Code) {
+      stop(
+        "Please check the search Language. Refer to gSearchLang data frame for avaliable search languages"
+      )
+    }
+    
+    if (!webInterfaceLang %in% gWebInLang$Code) {
+      stop(
+        "Please check the Web Interface Language. Refer to gWebInLang data frame for avaliable web interface languages"
+      )
+    }
+    
+    query <- gsub(pattern = " ", replacement = "%20", query)
+    query <- tolower(query)
+    
+    country <- tolower(country)
+    webInterfaceLang <- tolower(webInterfaceLang)
+    
     #Construct the url
     subDomain <-
       paste0("http://clients1.", domainName)
     
     webInterfaceLang <- paste0("hl=", webInterfaceLang)
+    searchLang <- paste0("&lr=", searchLang)
     query <- paste0("q=", query)
+    
     url <-
-      paste0(subDomain,
-             "/complete/search?",
-             webInterfaceLang,
-             "&output=toolbar&",
-             query)
+      paste0(
+        subDomain,
+        "/complete/search?",
+        webInterfaceLang,
+        searchLang,
+        "&output=toolbar&",
+        query
+      )
     
     tryCatch({
       #Read the xml data from url
@@ -118,7 +132,6 @@ googleAutoComplete <-
       
       
     }, finally = {
-      
       closeAllConnections()
       
     })
