@@ -34,9 +34,9 @@
 #' An list of terms based on the query.
 #'
 #' @examples
-#' googleAutoComplete("Where is olympics", "com","lang_en","en")
+#' google_autocomplete("Where is olympics", "com","lang_en","en")
 #'
-#' googleAutoComplete("total athletes", "com")
+#' google_autocomplete("total athletes", "com")
 #'
 #' @author
 #' Abhinav Yedla \email{abhinavyedla@gmail.com}
@@ -58,7 +58,7 @@
 #'
 #' @export
 
-googleAutoComplete <-
+google_autocomplete <-
   function(query,
            country = "com",
            searchLang = "lang_en",
