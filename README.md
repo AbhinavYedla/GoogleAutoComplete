@@ -32,6 +32,8 @@ Please use it fair. Too many requests can get you blocked.
 
 Author(s)
 
+Shawn Dorius sdorius@iastate.edu
+
 Abhinav Yedla abhinavyedla@gmail.com
 
 References
